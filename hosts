@@ -1,13 +1,10 @@
-[bpies_ips]
-192.168.36.166  ansible_user=pi   hostname=bpi01
-192.168.36.224  ansible_user=pi   hostname=bpi02
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.17.0.2      f2f14b758f38
 
-
-[bpies]
-bpi[01:02].local	ansible_user=pi
-
-[bpies_manager]
-bpi01.local			ansible_user=pi
-
-[bpies_workers]
-bpi[02:02].local	ansible_user=pi
+192.168.36.166  bpi01.local
+192.168.36.224  bpi02.local

@@ -9,8 +9,9 @@ RUN apt-get update -y && \
     sshpass
 
 
-COPY ./hosts /etc/ansible/hosts
-COPY ./etc_hosts /etc/hosts
+COPY ./hosts /etc/hosts
+COPY ./ansible/hosts /etc/ansible/hosts
+COPY ./ansible/ansible.cfg /etc/ansible/ansible.cfg
 
 WORKDIR /work
 COPY ./ ./

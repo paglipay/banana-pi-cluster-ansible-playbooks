@@ -4,7 +4,7 @@
 
 
 [bpies]
-bpi[01:02].local	ansible_user=pi
+bpi[01:02].local	ansible_user=pi ansible_ssh_pass=bananapi  ansible_sudo_pass=bananapi 
 
 [bpies_manager]
 bpi01.local			ansible_user=pi
