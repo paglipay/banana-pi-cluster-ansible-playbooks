@@ -1,0 +1,13 @@
+[bpies_ips]
+192.168.36.166		ansible_user=pi		hostname=bpi01
+192.168.36.224		ansible_user=pi		hostname=bpi02
+
+
+[bpies]
+bpi[01:02].local	ansible_user=pi
+
+[bpies_manager]
+bpi01.local			ansible_user=pi
+
+[bpies_workers]
+bpi[02:02].local	ansible_user=pi
