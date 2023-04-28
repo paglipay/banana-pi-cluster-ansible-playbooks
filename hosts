@@ -1,9 +1,10 @@
 [bpies_ips]
-192.168.36.166		ansible_user=pi		hostname=bpi01
-192.168.36.224		ansible_user=pi		hostname=bpi02
+192.168.36.166		ansible_user=pi ansible_ssh_pass=bananapi		hostname=bpi01
+192.168.36.224		ansible_user=pi ansible_ssh_pass=bananapi		hostname=bpi02
 
 
 [bpies]
+host_key_checking = False
 bpi[01:02].local	ansible_user=pi
 
 [bpies_manager]
