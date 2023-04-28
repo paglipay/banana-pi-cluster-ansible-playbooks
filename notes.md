@@ -5,3 +5,5 @@ docker run -v "${PWD}":/work:ro paglipay/ansible-banana:latest ping.yml
 docker run -v "${PWD}":/work:ro -v ~/.ssh:/root/.ssh paglipay/ansible-banana:latest ping.yml
 
 install sshpass
+
+sudo ansible-playbook docker-swarm.yml --ask-become-pass --ask-pass -vv
