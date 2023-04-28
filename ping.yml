@@ -1,6 +1,6 @@
 - name: Ping the nodes
   gather_facts: no
-  hosts: bpies_ips
+  hosts: bpies
   become: yes
   tasks:
   - action: ping
