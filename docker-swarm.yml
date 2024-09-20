@@ -1,4 +1,4 @@
-- hosts: bpies
+- hosts: new_op
   become: true
   tasks:
    - name: Install Docker

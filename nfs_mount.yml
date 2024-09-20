@@ -1,0 +1,29 @@
+---
+- name: Ensure NFS share is mounted on /nfs-9
+  hosts: new_op
+  become: yes
+
+  tasks:
+    - name: Ensure /nfs-9 directory exists
+      file:
+        path: /nfs-9
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Ensure NFS share is mounted
+      mount:
+        path: /nfs-9
+        src: 192.168.0.3:/var/nfs/general
+        fstype: nfs
+        opts: defaults
+        state: mounted
+
+    - name: Ensure the NFS mount is persistent in /etc/fstab
+      mount:
+        path: /nfs-9
+        src: 192.168.0.3:/var/nfs/general
+        fstype: nfs
+        opts: defaults
+        state: present
