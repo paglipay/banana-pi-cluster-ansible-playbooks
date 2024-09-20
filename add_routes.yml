@@ -1,0 +1,33 @@
+---
+- name: Ensure specific routes are present
+  hosts: new_op
+  become: yes
+
+  tasks:
+    - name: Ensure the /etc/network/interfaces file is sourced correctly
+      lineinfile:
+        path: /etc/network/interfaces
+        state: present
+        line: "source /etc/network/interfaces.d/*"
+      when: "'source /etc/network/interfaces.d/*' not in lookup('file', '/etc/network/interfaces')"
+
+    - name: Add route for 192.168.2.0/24 via 192.168.36.233 if not present
+      lineinfile:
+        path: /etc/network/interfaces.d/static_routes
+        state: present
+        insertafter: '^iface eth0 inet dhcp'
+        line: "    up route add -net 192.168.2.0 netmask 255.255.255.0 gw 192.168.36.233"
+        create: yes
+
+    - name: Add route for 192.168.0.0/24 via 192.168.36.233 if not present
+      lineinfile:
+        path: /etc/network/interfaces.d/static_routes
+        state: present
+        insertafter: '^iface eth0 inet dhcp'
+        line: "    up route add -net 192.168.0.0 netmask 255.255.255.0 gw 192.168.36.233"
+        create: yes
+
+    - name: Restart networking to apply the changes
+      service:
+        name: networking
+        state: restarted
