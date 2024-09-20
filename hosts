@@ -8,6 +8,22 @@
 
 #192.168.36.166  bpi01.local
 #192.168.36.224  bpi02.local
+[ip_route]
+192.168.36.138 ansible_ssh_user=paul ansible_sudo_pass=P@ssw0rd
+192.168.36.100 ansible_ssh_user=paul ansible_sudo_pass=P@ssw0rd
+192.168.36.178 ansible_ssh_user=paul ansible_sudo_pass=P@ssw0rd
+192.168.36.167 ansible_ssh_user=paul ansible_sudo_pass=P@ssw0rd
+192.168.36.126 ansible_ssh_user=paul ansible_sudo_pass=P@ssw0rd
+192.168.36.222 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.126 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.237 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.209 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.198 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.160 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi06
+192.168.36.139 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi07
+192.168.36.223 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi08
+192.168.36.224 ansible_ssh_user=pi ansible_sudo_pass=bananapi
+
 
 [swarmnodes]
 #192.168.0.2 ansible_ssh_user=ubuntu
@@ -25,16 +41,28 @@
 192.168.36.126 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
 192.168.36.237 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
 192.168.36.209 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.198 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.160 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi06
+192.168.36.139 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi07
+192.168.36.223 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi08
 
 
 [bpies]
-192.168.36.222 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
-192.168.36.126 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
-192.168.36.237 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
-192.168.36.209 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.222 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi01
+192.168.36.126 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi02
+192.168.36.237 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi03
+192.168.36.209 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi04
+192.168.36.198 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi05
+192.168.36.160 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi06
+192.168.36.139 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi07
+192.168.36.223 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi08
 [bpies_manager]
 192.168.36.222 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
 [bpies_workers]
 192.168.36.126 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
 192.168.36.237 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
 192.168.36.209 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.198 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi
+192.168.36.160 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi06
+192.168.36.139 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi07
+192.168.36.223 ansible_ssh_user=orangepi ansible_sudo_pass=orangepi hostname=opi08
