@@ -1,0 +1,48 @@
+---
+- name: Ensure network interfaces and routes are properly configured
+  hosts: new_op
+  become: yes
+
+  tasks:
+    - name: Ensure the source for interfaces.d is present
+      lineinfile:
+        path: /etc/network/interfaces
+        state: present
+        line: "source /etc/network/interfaces.d/*"
+        insertbefore: BOF
+
+    - name: Ensure network is managed by NetworkManager comment is present
+      lineinfile:
+        path: /etc/network/interfaces
+        state: present
+        line: "# Network is managed by Network manager"
+        insertafter: "source /etc/network/interfaces.d/*"
+
+    - name: Ensure loopback interface is configured
+      blockinfile:
+        path: /etc/network/interfaces
+        block: |
+          auto lo
+          iface lo inet loopback
+        insertafter: "# Network is managed by Network manager"
+        marker: "# {mark}"
+
+    - name: Ensure eth0 is configured with dhcp and static routes
+      blockinfile:
+        path: /etc/network/interfaces
+        block: |
+          auto eth0
+          iface eth0 inet dhcp
+              up route add -net 192.168.2.0 netmask 255.255.255.0 gw 192.168.36.233
+              up route add -net 192.168.0.0 netmask 255.255.255.0 gw 192.168.36.233
+          auto eth0
+          iface eth0 inet dhcp
+              up route add -net 192.168.2.0 netmask 255.255.255.0 gw 192.168.36.233
+              up route add -net 192.168.0.0 netmask 255.255.255.0 gw 192.168.36.233
+        insertafter: "^iface lo inet loopback"
+        marker: "# {mark}"
+
+    - name: Restart networking service to apply changes
+      service:
+        name: networking
+        state: restarted

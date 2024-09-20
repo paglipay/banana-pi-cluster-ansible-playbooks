@@ -1,0 +1,8 @@
+- name: Checks the temperature of each node
+  hosts: bpies
+  gather_facts: no
+  tasks:
+    - name: Print temperature
+      shell: ifconfig | grep 192.168.36.
+      register: output
+    - debug: var=output.stdout

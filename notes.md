@@ -13,3 +13,6 @@ docker run -v "${PWD}":/work:ro -v "${PWD}/ansible":/etc/ansible:ro -v "${PWD}/h
 docker run -v "${PWD}":/work:ro -v "${PWD}/ansible":/etc/ansible:ro -v "${PWD}/hosts":/etc/hosts:ro -v ~/.ssh/:/root/.ssh/:ro bananapiclusteransibleplaybooks:latest ansible-playbook ping.yml 
 
 docker run -v "${PWD}":/work:ro -v "${PWD}/ansible":/etc/ansible:ro -v "${PWD}/hosts":/etc/hosts:ro -v ~/.ssh/:/root/.ssh/:ro bananapiclusteransibleplaybooks:latest ansible-playbook configure-hosts.yml 
+
+
+docker run --rm     -v $(pwd):/ansible     -v ~/.ssh:/root/.ssh     -w /ansible     ansible-docker ansible-playbook -i hosts ping.yml -vv
